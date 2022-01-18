@@ -1,0 +1,61 @@
+﻿@model IEnumerable<WebApplication1.Models.Footballer>
+
+@{
+    ViewData["Title"] = "Footballers";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h3 class="text-center">Best Of the First Half</h3> <br>
+<table class="table">
+    <thead class="bg-dark text-white">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Takim)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pozisyon)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Yas)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Takim)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pozisyon)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Yas)
+            </td>
+            <td>
+                <button type="button" class="btn alert-secondary" style="width:64px; padding:1px"> @Html.ActionLink("Edit", "Guncelle", new { id = item.Id }, new { style = "color: Black;" })</button>
+                <button type="button" class="btn alert-secondary" style="width:62px; padding:1px"> @Html.ActionLink("Details", "Detaylar", new { id = item.Id }, new { style = "color: Black;" })</button>
+                <button type="button" class="btn alert-secondary" style="width:60px; padding:1px"> @Html.ActionLink("Delete", "Sil", new { id = item.Id }, new { style = "color: Black;" })</button>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+<p>
+  <button type="button" class="btn btn-light" style="width:100%; padding:1px">  <a asp-action="Ekle"> Add New Player </a></button>
+</p>
